@@ -35,12 +35,14 @@ public class EditPostActivity extends AppCompatActivity {
     private int position = 0, id=0;
     private EditText txtDesc;
     private Button btnSave;
+    private Button btnMap;
     private ProgressDialog dialog;
     private SharedPreferences sharedPreferences;
 
     private static final String TAG = "EditPostActivity";
     private static final int ERROR_DIALOG_REQUEST = 9001;
-    
+    private double latitude, longitude;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,15 +56,27 @@ public class EditPostActivity extends AppCompatActivity {
 
         txtDesc = findViewById(R.id.txtDescEditPost);
         btnSave = findViewById(R.id.btnEditPost);
+        btnMap= findViewById(R.id.btnMap);
         dialog = new ProgressDialog(this);
         dialog.setCancelable(false);
         position = getIntent().getIntExtra("position", 0);
         id = getIntent().getIntExtra("postId", 0);
+        latitude=getIntent().getDoubleExtra("latitude",0.0);
+        longitude=getIntent().getDoubleExtra("longitude",0.0);
         txtDesc.setText(getIntent().getStringExtra("text"));
         
         btnSave.setOnClickListener(v->{
             if(!txtDesc.getText().toString().isEmpty()) {
                 savePost();
+            }
+        });
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(EditPostActivity.this,MapsActivity.class);
+                i.putExtra("longitude",longitude);
+                i.putExtra("latitude",latitude);
+                startActivity(i);
             }
         });
     }

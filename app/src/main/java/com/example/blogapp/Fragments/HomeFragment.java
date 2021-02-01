@@ -106,6 +106,8 @@ public class HomeFragment extends Fragment {
                         post.setDesc(postObject.getString("desc"));
                         post.setPhoto(postObject.getString("photo"));
                         post.setSelfLike(postObject.getBoolean("selfLike"));
+                        post.setLatitude(postObject.getString("latitude"));
+                        post.setLongitude(postObject.getString("longitude"));
 
                         arrayList.add(post);
                     }

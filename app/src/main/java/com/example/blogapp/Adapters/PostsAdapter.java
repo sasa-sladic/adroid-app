@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -144,9 +145,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostHolder>{
                     switch (item.getItemId()) {
                         case R.id.item_edit: {
                             Intent i = new Intent(((HomeActivity)context), EditPostActivity.class);
+                            Log.d("TEST",post.getLatitude());
                             i.putExtra("postId", post.getId());
                             i.putExtra("position", position);
                             i.putExtra("text", post.getDesc());
+                            i.putExtra("latitude",Double.parseDouble(post.getLatitude()));
+                            i.putExtra("longitude",Double.parseDouble(post.getLongitude()));
                             context.startActivity(i);
                             return true;
                         }

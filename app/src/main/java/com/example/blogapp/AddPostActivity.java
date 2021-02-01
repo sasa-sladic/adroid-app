@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,13 +37,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddPostActivity extends AppCompatActivity {
+    private final int RETURN_MAPS=1;
     private Button btnPost;
+    private Button btnOpenMap;
     private ImageView imgPost;
     private EditText txtDesc;
     private Bitmap bitmap = null;
     private static final int GALLERY_CHANGE_POST = 3;
     private ProgressDialog dialog;
     private SharedPreferences preferences;
+    private double mLongitude, mLatitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,7 @@ public class AddPostActivity extends AppCompatActivity {
         btnPost = findViewById(R.id.btnAddPost);
         imgPost = findViewById(R.id.imgAddPost);
         txtDesc = findViewById(R.id.txtDescAddPost);
+        btnOpenMap=findViewById(R.id.btnOpenMap);
         dialog = new ProgressDialog(this);
         dialog.setCancelable(false);
 
@@ -65,6 +70,15 @@ public class AddPostActivity extends AppCompatActivity {
         }catch (IOException e) {
             e.printStackTrace();
         }
+
+        btnOpenMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(AddPostActivity.this,MapsActivity.class);
+                startActivityForResult(i,RETURN_MAPS);
+
+            }
+        });
 
         btnPost.setOnClickListener(v->{
             if (!txtDesc.getText().toString().isEmpty()) {
@@ -100,6 +114,8 @@ public class AddPostActivity extends AppCompatActivity {
                     post.setComments(0);
                     post.setLikes(0);
                     post.setDate(postObject.getString("created_at"));
+                    post.setLatitude(postObject.getString("latitude"));
+                    post.setLongitude(postObject.getString("longitude"));
 
                     HomeFragment.arrayList.add(0,post);
                     HomeFragment.recyclerView.getAdapter().notifyItemInserted(0);
@@ -131,6 +147,9 @@ public class AddPostActivity extends AppCompatActivity {
                 HashMap<String, String> map = new HashMap<>();
                 map.put("desc", txtDesc.getText().toString().trim());
                 map.put("photo", bitmapToString(bitmap));
+                map.put("latitude",""+mLatitude);
+                map.put("longitude",""+mLongitude);
+
 
                 return map;
             }
@@ -164,6 +183,12 @@ public class AddPostActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==RETURN_MAPS && resultCode==RESULT_OK){
+            Log.d("TEST",""+data.getDoubleExtra("latitude",0.0));
+            Log.d("TEST",""+data.getDoubleExtra("longitude",0.0));
+            mLatitude=data.getDoubleExtra("latitude",0.0);
+            mLongitude=data.getDoubleExtra("longitude",0.0);
+        }
         if (requestCode == GALLERY_CHANGE_POST && resultCode==RESULT_OK) {
             Uri imgUri = data.getData();
             imgPost.setImageURI(imgUri);
@@ -174,4 +199,5 @@ public class AddPostActivity extends AppCompatActivity {
             }
         }
     }
+
 }

@@ -5,6 +5,8 @@ public class Post {
     private String date,desc,photo;
     private User user;
     private boolean selfLike;
+    private String longitude;
+    private String latitude;
 
     public int getId() {
         return id;
@@ -68,5 +70,21 @@ public class Post {
 
     public void setSelfLike(boolean selfLike) {
         this.selfLike = selfLike;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 }
