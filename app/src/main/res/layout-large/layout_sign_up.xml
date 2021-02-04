@@ -14,7 +14,7 @@
         android:layout_marginBottom="50dp"
         android:fontFamily="@font/leckerlione_regular"
         android:gravity="center_horizontal"
-        android:text="Blog App"
+        android:text="@string/blog_app"
         android:textColor="@color/colorGrey"
         android:textSize="32sp" />
 
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtEmailSignUp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:textSize="15sp"/>
 
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtPasswordSignUp"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:textSize="15sp"/>
 
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtConfirmSignUp"
-            android:hint="Confirm"
+            android:hint="@string/confirm"
             android:inputType="textPassword"
             android:textSize="15sp"/>
 
@@ -74,10 +74,10 @@
         android:layout_height="220dp"
         android:layout_marginBottom="70dp"
         android:background="@drawable/btn_round"
-        android:text="Sign up"
+        android:text="@string/sign_up"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
-        android:textSize="17dp" />
+        android:textSize="17sp" />
 
 
     <LinearLayout
@@ -90,16 +90,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already have account?"
-            android:layout_marginRight="6dp"/>
+            android:text="@string/already_have_account"
+            android:layout_marginEnd="6dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign in"
+            android:text="@string/sign_in"
             android:textColor="@color/colorPrimary"
             android:id="@+id/txtSignIn"
-            android:layout_marginRight="6dp"/>
+            android:layout_marginEnd="6dp"/>
 
 
     </LinearLayout>

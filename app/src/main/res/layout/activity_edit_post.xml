@@ -18,15 +18,16 @@
             android:layout_width="wrap_content"
             android:src="@drawable/ic_baseline_arrow_back_24"
             android:background="@android:color/transparent"
-            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"
             android:tint="@color/colorBlack"
             android:onClick="cancelEdit"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit Post"
+            android:text="@string/edit_post"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"/>
 
@@ -39,10 +40,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
             android:layout_marginTop="6dp">
+
+            <TextView
+                android:layout_marginStart="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/tmpView"
+                android:text="0.0°"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                tools:ignore="RtlHardcoded" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -52,7 +65,9 @@
                 android:textSize="15sp"
                 android:id="@+id/txtDescEditPost"
                 android:padding="8dp"
-                android:background="@drawable/txt_background"/>
+                android:background="@drawable/txt_background"
+                android:autofillHints=""
+                tools:ignore="LabelFor,RtlHardcoded" />
 
             <Button
                 android:id="@+id/btnMap"
@@ -63,17 +78,17 @@
                 android:text="@string/map"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
-                android:textSize="17dp" />
+                android:textSize="17sp" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
-                android:text="Save"
+                android:text="@string/save"
                 android:id="@+id/btnEditPost"
                 android:background="@drawable/btn_round"
                 android:textColor="@color/colorWhite"
                 android:layout_marginTop="12dp"
-                android:textSize="17dp"
+                android:textSize="17sp"
                 android:textAllCaps="false"/>
 
 

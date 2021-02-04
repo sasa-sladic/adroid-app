@@ -42,7 +42,7 @@ public class AccountPostAdapter extends RecyclerView.Adapter<AccountPostAdapter.
         return arrayList.size();
     }
 
-    class AccountPostHolder extends RecyclerView.ViewHolder{
+    static class AccountPostHolder extends RecyclerView.ViewHolder{
 
         private ImageView imageView;
 

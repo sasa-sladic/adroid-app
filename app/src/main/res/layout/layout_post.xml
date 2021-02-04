@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:clickable="true"
     android:focusable="true"
@@ -26,8 +27,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingLeft="6dp"
-                android:orientation="vertical">
+                android:paddingStart="6dp"
+                android:orientation="vertical"
+                tools:ignore="RtlSymmetry">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -35,7 +37,7 @@
                     android:id="@+id/txtPostName"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
-                    android:text="Sasa Sladic"/>
+                    android:text="@string/sasa_sladic"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -43,18 +45,19 @@
                     android:textSize="11sp"
                     android:id="@+id/txtPostDate"
                     android:textColor="@color/colorLightGrey"
-                    android:text="Januar 27"/>
+                    android:text="@string/januar_27"
+                    tools:ignore="SmallSp" />
             </LinearLayout>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
                 android:id="@+id/btnPostOption"
                 android:background="@android:color/transparent"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_baseline_more_vert_24"
-                />
+                android:contentDescription="@string/todo" />
 
         </LinearLayout>
 
@@ -67,20 +70,21 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:paddingBottom="8dp"
-            android:text="dsadsadsadd"/>
+            android:text="@string/dsadsadsadd"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:id="@+id/imgPostPhoto"
-            android:src="@color/colorLightGrey"/>
+            android:src="@color/colorLightGrey"
+            android:contentDescription="@string/todo" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginBottom="12dp"
             android:layout_marginTop="12dp">
 
@@ -88,9 +92,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnPostLike"
-                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
                 android:src="@drawable/ic_favorite_outline"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/todo" />
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -98,27 +103,28 @@
                 android:id="@+id/btnPostComment"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_comment"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/todo" />
 
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12 Likes"
+            android:text="@string/_12_likes"
             android:id="@+id/txtPostLikes"
             android:textStyle="bold"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:textSize="13sp"
             android:textColor="@color/colorGrey"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View all 0 comments"
+            android:text="@string/view_all_0_comments"
             android:id="@+id/txtPostComments"
             android:layout_marginTop="4dp"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginBottom="20dp"
             android:textSize="12sp"
             android:textColor="@color/colorLightGrey"/>

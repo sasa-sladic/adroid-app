@@ -42,7 +42,7 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class EditUserInfoActivity extends FragmentActivity implements OnMapReadyCallback {
+public class EditUserInfoActivity extends FragmentActivity {
 
     private TextInputLayout layoutName, layoutLastname;
     private TextInputEditText txtName, txtLastname;
@@ -54,8 +54,6 @@ public class EditUserInfoActivity extends FragmentActivity implements OnMapReady
     private ProgressDialog dialog;
     private static final int GALLERY_CHANGE_PROFILE = 5;
     int PLACE_PICKER_REQUEST = 1;
-
-    GoogleMap map;
 
 
     @Override
@@ -78,10 +76,6 @@ public class EditUserInfoActivity extends FragmentActivity implements OnMapReady
         btnSave = findViewById(R.id.btnEditSave);
         circleImageView = findViewById(R.id.imgEditUserInfo);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-
         Picasso.get().load(getIntent().getStringExtra("imgUrl")).into(circleImageView);
         txtName.setText(userPref.getString("name",""));
         txtLastname.setText(userPref.getString("lastname",""));
@@ -91,15 +85,6 @@ public class EditUserInfoActivity extends FragmentActivity implements OnMapReady
             i.setType("image/*");
             startActivityForResult(i,GALLERY_CHANGE_PROFILE);
         });
-
-//        btnMapPicker.setOnClickListener(v->{
-//            PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-//            try {
-//                startActivityForResult(builder.build(EditUserInfoActivity.this), PLACE_PICKER_REQUEST);
-//            } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
-//                e.printStackTrace();
-//            }
-//        });
 
         btnSave.setOnClickListener(v->{
             if (validate()){
@@ -203,24 +188,5 @@ public class EditUserInfoActivity extends FragmentActivity implements OnMapReady
         }
 
         return "";
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        map = googleMap;
-
-        map.setOnMapClickListener(latLng -> {
-            //LatLng test = new LatLng(19.189257, 73.341601);
-            MarkerOptions options = new MarkerOptions();
-            options.position(latLng);
-            options.title("My location");
-            map.clear();
-            map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-            map.addMarker(options);
-
-        });
-
-
-
     }
 }

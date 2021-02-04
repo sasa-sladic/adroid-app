@@ -18,15 +18,16 @@
             android:layout_width="wrap_content"
             android:src="@drawable/ic_baseline_arrow_back_24"
             android:background="@android:color/transparent"
-            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"
             android:tint="@color/colorBlack"
             android:onClick="cancelPost"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Post"
+            android:text="@string/new_post"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"/>
 
@@ -39,7 +40,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
             android:layout_marginTop="6dp">
@@ -49,12 +50,13 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:id="@+id/imgAddPost"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/todo" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Change Photo"
+                android:text="@string/change_photo"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/colorPrimary"
                 android:gravity="center_horizontal"
@@ -62,13 +64,15 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="80dp"
                 android:inputType="textMultiLine"
-                android:gravity="left"
+                android:layout_gravity="left"
                 android:textSize="15sp"
                 android:id="@+id/txtDescAddPost"
                 android:padding="8dp"
-                android:background="@drawable/txt_background"/>
+                android:background="@drawable/txt_background"
+                android:autofillHints=""
+                tools:ignore="LabelFor,RtlHardcoded" />
 
             <Button
                 android:id="@+id/btnOpenMap"
@@ -76,20 +80,20 @@
                 android:layout_height="42dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/btn_round"
-                android:text="Add location"
+                android:text="@string/add_location"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
-                android:textSize="17dp" />
+                android:textSize="17sp" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
-                android:text="Post"
+                android:text="@string/post"
                 android:id="@+id/btnAddPost"
                 android:background="@drawable/btn_round"
                 android:textColor="@color/colorWhite"
                 android:layout_marginTop="12dp"
-                android:textSize="17dp"
+                android:textSize="17sp"
                 android:textAllCaps="false"/>
 
 

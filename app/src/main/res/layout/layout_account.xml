@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -18,7 +19,7 @@
             android:layout_width="wrap_content"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
-            android:text="Blog App"
+            android:text="@string/blog_app"
             android:fontFamily="@font/leckerlione_regular"
             android:layout_height="wrap_content"/>
 
@@ -29,7 +30,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="30dp"
-        android:paddingBottom="30dp">
+        android:paddingBottom="30dp"
+        android:baselineAligned="false">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -47,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/colorBlack"
-                android:text="Sasa Sladic"
+                android:text="@string/sasa_sladic"
                 android:textStyle="bold"
                 android:id="@+id/txtAccountName" />
 
@@ -67,13 +69,14 @@
                 android:text="0"
                 android:layout_marginBottom="8dp"
                 android:id="@+id/txtAccountPostCount"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/colorBlack"
-                android:text="Posts"
+                android:text="@string/posts"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 
@@ -84,7 +87,7 @@
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
         android:background="@drawable/btn_round"
-        android:text="Edit Account"
+        android:text="@string/edit_account"
         android:textColor="@color/colorWhite"
         android:textAllCaps="false"
         android:id="@+id/btnEditAccount"

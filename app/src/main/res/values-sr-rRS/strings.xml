@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BlogApp</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="map">Mapa</string>
+    <string name="new_post">Nova objava</string>
+    <string name="change_photo">Izmenite sliku</string>
+    <string name="add_location">Dodajte lokaciju</string>
+    <string name="post">Objave</string>
+    <string name="sasa_sladic">Sasa Sladic</string>
+    <string name="sign_up">Registruj se</string>
+    <string name="blog_app">Blog Aplikacija</string>
+    <string name="password">Lozinka</string>
+    <string name="already_have_account">Vec imate napravljen nalog?</string>
+    <string name="sign_in">Uloguj se</string>
+    <string name="email">Email</string>
+    <string name="confirm">Potvrdi</string>
+    <string name="todo">Uradi</string>
+    <string name="dont_have_account">Nemate nalog?</string>
+    <string name="user_info">Informacije</string>
+    <string name="dsadsadsadd">Neki tekst</string>
+    <string name="_12_likes">12 Lajkova</string>
+    <string name="view_all_0_comments">Pogledaj svih 0 komentara</string>
+    <string name="edit">Izmeni</string>
+    <string name="delete">Obrisi</string>
+    <string name="dsadasdsadadada">Neki opis</string>
+    <string name="januar_27">Januar 27</string>
+    <string name="edit_account">Azuriraj profil</string>
+    <string name="posts">Postovi</string>
+    <string name="info_continue">Nastavi</string>
+    <string name="lastname">Prezime</string>
+    <string name="name">Ime</string>
+    <string name="select_photo">Izaberite sliku</string>
+    <string name="camera">Kamera</string>
+    <string name="next">Dalje</string>
+    <string name="skip">Preskoci</string>
+    <string name="edit_info">Azurirajte informacije</string>
+    <string name="save">Sacuvaj</string>
+    <string name="edit_post">Azuriraj post</string>
+    <string name="write_something">Napisite nesto</string>
+    <string name="comments">Komentari</string>
+</resources>

@@ -7,11 +7,16 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -30,7 +35,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditPostActivity extends AppCompatActivity {
+public class EditPostActivity extends AppCompatActivity implements SensorEventListener  {
 
     private int position = 0, id=0;
     private EditText txtDesc;
@@ -38,6 +43,9 @@ public class EditPostActivity extends AppCompatActivity {
     private Button btnMap;
     private ProgressDialog dialog;
     private SharedPreferences sharedPreferences;
+    private SensorManager sensorManager;
+    private Sensor tempSensor;
+    private TextView tmpView;
 
     private static final String TAG = "EditPostActivity";
     private static final int ERROR_DIALOG_REQUEST = 9001;
@@ -54,6 +62,7 @@ public class EditPostActivity extends AppCompatActivity {
     private void init() {
         sharedPreferences = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
 
+        tmpView = findViewById(R.id.tmpView);
         txtDesc = findViewById(R.id.txtDescEditPost);
         btnSave = findViewById(R.id.btnEditPost);
         btnMap= findViewById(R.id.btnMap);
@@ -64,6 +73,14 @@ public class EditPostActivity extends AppCompatActivity {
         latitude=getIntent().getDoubleExtra("latitude",0.0);
         longitude=getIntent().getDoubleExtra("longitude",0.0);
         txtDesc.setText(getIntent().getStringExtra("text"));
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE) != null) {
+            tempSensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+        }else{
+            tmpView.setText("Temperature sensor is not available!");
+        }
         
         btnSave.setOnClickListener(v->{
             if(!txtDesc.getText().toString().isEmpty()) {
@@ -131,5 +148,28 @@ public class EditPostActivity extends AppCompatActivity {
 
     public void cancelEdit(View view){
         super.onBackPressed();
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        tmpView.setText(event.values[0] + " °C");
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        sensorManager.registerListener(this, tempSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(this);
+
     }
 }
